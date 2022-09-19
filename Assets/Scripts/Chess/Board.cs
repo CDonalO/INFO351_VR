@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(SquareSelectorCreator))]
 public class Board : MonoBehaviour
 {
-    public const int BOARD_SIZE = 8;
+    public const int BOARD_SIZE = 2;
 
     [SerializeField] private Transform bottomLeftSquareTransform;
     [SerializeField] private float squareSize;
@@ -51,6 +51,9 @@ public class Board : MonoBehaviour
     {
         Vector2Int coords = CalculateCoordsFromPosition(inputPosition);
         Piece piece = GetPieceOnSquare(coords);
+        if(piece == null){
+            Debug.Log("null piece");
+        }
         if (selectedPiece)
         {
             if (piece != null && selectedPiece == piece)
@@ -123,8 +126,10 @@ public class Board : MonoBehaviour
 
     public bool CheckIfCoordinatesAreOnBoard(Vector2Int coords)
     {
-        if (coords.x < 0 || coords.y < 0 || coords.x >= BOARD_SIZE || coords.y >= BOARD_SIZE)
+        if (coords.x < 0 || coords.y < 0 || coords.x >= BOARD_SIZE || coords.y >= BOARD_SIZE){
+            Debug.Log("Coords arnt on board ");
             return false;
+        }
         return true;
     }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(MaterialSetter))]
-[RequireComponent(typeof(IObjectTweener))]
+[RequireComponent(typeof(InstantTweener))]
 public abstract class Piece : MonoBehaviour
 {
 	[SerializeField] private MaterialSetter materialSetter;
