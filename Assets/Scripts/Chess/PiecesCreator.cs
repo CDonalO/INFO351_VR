@@ -15,13 +15,15 @@ public class PiecesCreator : MonoBehaviour
     {
         foreach (var piece in piecesPrefabs)
         {
-            nameToPieceDict.Add(piece.GetComponent<Piece>().GetType().ToString(), piece);
+            Debug.Log("PieceName " + piece.name);
+            nameToPieceDict.Add(piece.name, piece);
         }
     }
 
-    public GameObject CreatePiece(Type type)
+    public GameObject CreatePiece(Type type,string team)
     {
-        GameObject prefab = nameToPieceDict[type.ToString()];
+        Debug.Log(type.ToString());
+        GameObject prefab = nameToPieceDict[team + type.ToString()];
         if (prefab)
         {
             GameObject newPiece = Instantiate(prefab);

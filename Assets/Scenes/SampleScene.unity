@@ -4426,12 +4426,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piecesPrefabs:
-  - {fileID: 1239270685352430, guid: ddcba88d9da290b44abbd0463823d990, type: 3}
-  - {fileID: 1538407554156714, guid: d1c0ee6232e4f864ba78876bd162ab80, type: 3}
-  - {fileID: 1564033256009494, guid: 6323280521c9149408e8149eed9cfafb, type: 3}
-  - {fileID: 1335334207052556, guid: 6dacfbaa496348142ae62895e3a5e91c, type: 3}
-  - {fileID: 1430682043930404, guid: 1d6bcc3b36f517c49962faf6dec12e8d, type: 3}
-  - {fileID: 1562622190837322, guid: 3e694aa3bab74504fb75d024ce8f1d2e, type: 3}
+  - {fileID: 1353652469814562, guid: b91dee54ff29d29428d49959f79c5278, type: 3}
+  - {fileID: 1233361812545480, guid: 76ab1e38396c83a42b8d4c2d1a3d4c37, type: 3}
+  - {fileID: 1140620360365506, guid: abc12903d8d6e9b4a87eda96f489f302, type: 3}
+  - {fileID: 1109215888586288, guid: 3d9b5a71f495656468a8cd9b96db4be4, type: 3}
+  - {fileID: 1633224609000294, guid: b5e3d64d35577f64a95923a326674299, type: 3}
+  - {fileID: 1716085140368864, guid: 8aa0bbc3b4ddc4e45849dd9ec27adf60, type: 3}
+  - {fileID: 1239270685352430, guid: 1174acd08221c3d4ebd0c4b1fa94e997, type: 3}
+  - {fileID: 1538407554156714, guid: 10078d216054a9a4abb26ac48a8310cd, type: 3}
+  - {fileID: 1564033256009494, guid: 076285dff2f86b94ca427a159d0d79df, type: 3}
+  - {fileID: 1335334207052556, guid: 8d530129066c67643a1345191262c751, type: 3}
+  - {fileID: 1430682043930404, guid: 53001b969d3ef6442b0db314fc3e7c0f, type: 3}
+  - {fileID: 1562622190837322, guid: 8cc80d8e1988cc04ab27c7e8ea0fc6ef, type: 3}
   blackMaterial: {fileID: 2100000, guid: bdb50fab431fcf5469beb24c954ca975, type: 2}
   whiteMaterial: {fileID: 2100000, guid: 1dfe1996596fdbd4796c78738ee90717, type: 2}
 --- !u!4 &1991467463

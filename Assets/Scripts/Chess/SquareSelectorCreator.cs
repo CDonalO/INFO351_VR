@@ -16,11 +16,13 @@ public class SquareSelectorCreator : MonoBehaviour
 		foreach (var data in squareData)
 		{
 			GameObject selector = Instantiate(selectorPrefab, data.Key, Quaternion.identity);
+			selector.GetComponent<Renderer>().material = data.Value ? freeSquareMaterial : enemySquareMaterial;
 			instantiatedSelectors.Add(selector);
-			foreach (var setter in selector.GetComponentsInChildren<MaterialSetter>())
-			{
-				setter.SetSingleMaterial(data.Value ? freeSquareMaterial : enemySquareMaterial);
-			}
+			
+			// foreach (var setter in selector.GetComponentsInChildren<MaterialSetter>())
+			// {
+			// 	setter.SetSingleMaterial(data.Value ? freeSquareMaterial : enemySquareMaterial);
+			// }
 		}
 	}
 

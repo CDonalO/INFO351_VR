@@ -26,6 +26,11 @@ using UnityEngine;
 /// </summary>
 public class OVRGrabbable : MonoBehaviour
 {
+    public delegate void Grab();
+    public static event Grab OnGrab;
+    public delegate void Release();
+    public static event Release OnRelease;
+    public static GameObject currObject;
     [SerializeField]
     protected bool m_allowOffhandGrab = true;
     [SerializeField]
@@ -118,6 +123,11 @@ public class OVRGrabbable : MonoBehaviour
 	/// </summary>
 	virtual public void GrabBegin(OVRGrabber hand, Collider grabPoint)
     {
+        currObject = gameObject;
+        if(OnGrab != null){
+            OnGrab();
+        }
+
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -128,12 +138,16 @@ public class OVRGrabbable : MonoBehaviour
 	/// </summary>
 	virtual public void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
     {
+        if(OnRelease != null){
+            OnRelease();
+        }
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.isKinematic = m_grabbedKinematic;
         rb.velocity = linearVelocity;
         rb.angularVelocity = angularVelocity;
         m_grabbedBy = null;
         m_grabbedCollider = null;
+        currObject = null;
     }
 
     void Awake()
