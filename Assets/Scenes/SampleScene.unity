@@ -2676,9 +2676,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9293471ade0a241b938844dc980c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeSquareMaterial: {fileID: 0}
-  enemySquareMaterial: {fileID: 0}
-  selectorPrefab: {fileID: 1770122965645346, guid: 3bdde54bfc9a6fb478530500531a9618,
+  freeSquareMaterial: {fileID: 2100000, guid: c64f6e56051227140b7b088333382211, type: 2}
+  enemySquareMaterial: {fileID: 2100000, guid: 7851a187035554d4ebe29337c11d8cbe, type: 2}
+  selectorPrefab: {fileID: 7226991952865218864, guid: 41c9a9a7eb3696a459c5ea184503220c,
     type: 3}
 --- !u!4 &1254794436 stripped
 Transform:
@@ -4036,7 +4036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792124922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.232, y: 0, z: -5.228}
+  m_LocalPosition: {x: -5.228, y: 0, z: -5.272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

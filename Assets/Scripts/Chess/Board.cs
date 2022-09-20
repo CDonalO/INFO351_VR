@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(SquareSelectorCreator))]
 public class Board : MonoBehaviour
 {
-    public const int BOARD_SIZE = 2;
+    public const int BOARD_SIZE = 8;
 
     [SerializeField] private Transform bottomLeftSquareTransform;
     [SerializeField] private float squareSize;
@@ -71,6 +71,30 @@ public class Board : MonoBehaviour
     }
 
 
+// Need to add this to make grabbing a object possible
+    // public void OnPieceGrabbed(GameObject pieceGrabbed)
+    // {
+    //     Piece piece = GetPieceGrabbed(pieceGrabbed);
+    //     if(piece == null){
+    //         Debug.Log("null piece");
+    //     }
+    //     if (selectedPiece)
+    //     {
+    //         if (piece != null && selectedPiece == piece)
+    //             DeselectPiece();
+    //         else if (piece != null && selectedPiece != piece && chessController.IsTeamTurnActive(piece.team))
+    //             SelectPiece(piece);
+    //         else if (selectedPiece.CanMoveTo(coords))
+    //             OnSelectedPieceMoved(coords, selectedPiece);
+    //     }
+    //     else
+    //     {
+    //         if (piece != null && chessController.IsTeamTurnActive(piece.team))
+    //             SelectPiece(piece);
+    //     }
+    // }
+
+
 
     private void SelectPiece(Piece piece)
     {
@@ -123,6 +147,22 @@ public class Board : MonoBehaviour
             return grid[coords.x, coords.y];
         return null;
     }
+
+    // Need to add this to make grabbing a object possible
+    // public Piece GetPieceGrabbed(GameObject object)
+    // {
+    //     for (int i = 0; i < BOARD_SIZE; i++)
+    //     {
+    //         for (int j = 0; j < BOARD_SIZE; j++)
+    //         {
+    //             Debug.Log(grid[i,j]);
+    //             // if (grid[i, j] == object){
+    //             //     return grid[i,j];
+    //             // }
+    //         }
+    //     }
+    //     return null;
+    // }
 
     public bool CheckIfCoordinatesAreOnBoard(Vector2Int coords)
     {

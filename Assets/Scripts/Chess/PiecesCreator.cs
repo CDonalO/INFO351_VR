@@ -30,6 +30,7 @@ public class PiecesCreator : MonoBehaviour
         return null;
     }
 
+
     public Material GetTeamMaterial(TeamColor team)
     {
         return team == TeamColor.White ? whiteMaterial : blackMaterial;
