@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GrabInputReciever : InputReciever
-{
-
-    void OnEnable() {
-        OVRGrabbable.OnGrab += OnInputRecieved;
-        OVRGrabbable.OnRelease += OnInputRecieved;    
-    }
-
-    void OnDisable() {
-        OVRGrabbable.OnGrab -= OnInputRecieved;
-        OVRGrabbable.OnRelease -= OnInputRecieved;  
+{   
+    private bool objGrabbed = false;
+    private void Update() {
+        GameObject grabbed = OVRGrabbable.currObject;
+        if (grabbed != null & !objGrabbed){
+            objGrabbed = true;
+            Debug.Log("Aaaaa");
+            OnInputRecieved();
+        }
     }
 
     public override void OnInputRecieved()

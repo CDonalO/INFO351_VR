@@ -16,7 +16,7 @@ public class SquareSelectorCreator : MonoBehaviour
 		foreach (var data in squareData)
 		{
 			GameObject selector = Instantiate(selectorPrefab, data.Key, Quaternion.identity);
-			selector.GetComponent<Renderer>().material = data.Value ? freeSquareMaterial : enemySquareMaterial;
+			// selector.GetComponent<MeshRenderer>().material = enemySquareMaterial;
 			instantiatedSelectors.Add(selector);
 			
 			// foreach (var setter in selector.GetComponentsInChildren<MaterialSetter>())

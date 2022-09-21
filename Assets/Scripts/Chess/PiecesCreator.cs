@@ -27,6 +27,9 @@ public class PiecesCreator : MonoBehaviour
         if (prefab)
         {
             GameObject newPiece = Instantiate(prefab);
+            if(team.Equals("Black")){
+                newPiece.transform.Rotate(0f,180f,0f,Space.Self);
+            }
             return newPiece;
         }
         return null;
