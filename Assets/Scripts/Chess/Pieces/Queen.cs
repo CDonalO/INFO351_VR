@@ -41,4 +41,7 @@ public class Queen : Piece
         }
         return avaliableMoves;
     }
+	public override string ToString() {
+        return team == TeamColor.White ? "Q" : "q";
+    }
 }

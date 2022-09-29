@@ -31,6 +31,8 @@ public class Rook : Piece
         }
         return avaliableMoves;
     }
-
+	public override string ToString() {
+        return team == TeamColor.White ? "R" : "r";
+    }
   
 }

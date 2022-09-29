@@ -54,6 +54,14 @@ public class King : Piece
         }
     }
 
+    public bool CanCastleLeft() { //todo
+        return true;
+    }
+
+    public bool CanCastleRight() { //todo
+        return true;
+    }
+
     private Piece GetPieceInDirection<T>(TeamColor team, Vector2Int direction)
     {
         for (int i = 1; i <= Board.BOARD_SIZE; i++)
@@ -111,5 +119,7 @@ public class King : Piece
             rightRook.MovePiece(coords + Vector2Int.left);
         }
     }
-
+    public override string ToString() {
+        return team == TeamColor.White ? "K" : "k";
+    }
 }

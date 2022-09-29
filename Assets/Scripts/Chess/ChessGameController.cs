@@ -15,6 +15,7 @@ public class ChessGameController : MonoBehaviour
     [SerializeField] private BoardLayout startingBoardLayout;
     [SerializeField] private Board board;
     // [SerializeField] private ChessUIManager UIManager;
+    private Stockfish stockfish;
 
     private PiecesCreator pieceCreator;
     private ChessPlayer whitePlayer;
@@ -23,10 +24,13 @@ public class ChessGameController : MonoBehaviour
 
     private GameState state;
 
+    private int counter;
+
     private void Awake()
     {
         SetDependencies();
         CreatePlayers();
+        counter = 1;
     }
 
     private void SetDependencies()
@@ -53,7 +57,11 @@ public class ChessGameController : MonoBehaviour
         CreatePiecesFromLayout(startingBoardLayout);
         activePlayer = whitePlayer;
         GenerateAllPossiblePlayerMoves(activePlayer);
+        GenerateAllPossiblePlayerMoves(GetOpponentToPlayer(activePlayer));
+        stockfish = new Stockfish();
+        board.ToFenNotation();
         SetGameState(GameState.Play);
+        
     }
     private void SetGameState(GameState state)
     {
@@ -108,6 +116,9 @@ public class ChessGameController : MonoBehaviour
 
     public void EndTurn()
     {
+        if (activePlayer == blackPlayer) {
+            counter++;
+        }
         GenerateAllPossiblePlayerMoves(activePlayer);
         GenerateAllPossiblePlayerMoves(GetOpponentToPlayer(activePlayer));
         if (CheckIfGameIsFinished())
@@ -155,6 +166,10 @@ public class ChessGameController : MonoBehaviour
         StartNewGame();
     }
 
+    public int GetMoveCounter() {
+        return counter;
+    }
+
     private void DestroyPieces()
     {
         whitePlayer.activePieces.ForEach(p => Destroy(p.gameObject));
@@ -169,6 +184,10 @@ public class ChessGameController : MonoBehaviour
     private ChessPlayer GetOpponentToPlayer(ChessPlayer player)
     {
         return player == whitePlayer ? blackPlayer : whitePlayer;
+    }
+
+    public ChessPlayer GetPlayer(TeamColor team) {
+        return team == TeamColor.White ? whitePlayer : blackPlayer;
     }
 
     internal void OnPieceRemoved(Piece piece)

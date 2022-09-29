@@ -38,6 +38,10 @@ public class ChessPlayer
 		}
 	}
 
+	public King GetKing() {
+		return (King) activePieces.Where(p=> p is King).First();
+	}
+
 	public Piece[] GetPieceAtackingOppositePiceOfType<T>() where T : Piece
 	{
 		return activePieces.Where(p => p.IsAttackingPieceOfType<T>()).ToArray();

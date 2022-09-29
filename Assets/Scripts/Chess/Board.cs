@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 [RequireComponent(typeof(SquareSelectorCreator))]
@@ -15,7 +16,6 @@ public class Board : MonoBehaviour
     private Piece selectedPiece;
     private ChessGameController chessController;
     private SquareSelectorCreator squareSelector;
-
 
     private void Awake()
     {
@@ -175,6 +175,50 @@ public class Board : MonoBehaviour
     {
         TakePiece(piece);
         chessController.CreatePieceAndInitialize(piece.occupiedSquare, piece.team, typeof(Queen));
+    }
+
+    public string ToFenNotation() {
+        StringBuilder fen = new StringBuilder();
+        int emptySquares;
+        for (int i = BOARD_SIZE - 1; i >= 0; i--) {
+            emptySquares = 0;
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                if (grid[j,i] == null) {
+                    emptySquares++;
+                } else {
+                    if (emptySquares > 0) {
+                        fen.Append(emptySquares);
+                        emptySquares = 0;
+                    }
+                    fen.AppendFormat(grid[j,i].ToString());
+                }
+            }
+            if (emptySquares > 0) {
+                fen.Append(emptySquares);
+            }
+            fen.Append("/");
+        }
+        fen.Remove(fen.Length - 1, 1);
+
+        fen.AppendFormat(" {0}", chessController.IsTeamTurnActive(TeamColor.White) ? "w" : "b");
+
+        StringBuilder castling = new StringBuilder();
+        King whiteKing = chessController.GetPlayer(TeamColor.White).GetKing();
+        King blackKing = chessController.GetPlayer(TeamColor.Black).GetKing();
+        castling.Append(whiteKing.CanCastleRight() ? "K" : "");
+        castling.Append(whiteKing.CanCastleLeft() ? "Q" : "");
+        castling.Append(blackKing.CanCastleRight() ? "k" : "");
+        castling.Append(blackKing.CanCastleLeft() ? "q" : "");
+        fen.Append(castling.Length > 0 ? castling : " -");
+
+        fen.Append(" - 0");
+
+        fen.AppendFormat(" {0}", chessController.GetMoveCounter());
+
+
+
+        Debug.Log(fen.ToString());
+        return fen.ToString();
     }
 
     internal void OnGameRestarted()

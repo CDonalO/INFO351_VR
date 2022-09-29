@@ -31,4 +31,8 @@ public class Knight : Piece
 		}
 		return avaliableMoves;
 	}
+
+	public override string ToString() {
+        return team == TeamColor.White ? "N" : "n";
+    }
 }

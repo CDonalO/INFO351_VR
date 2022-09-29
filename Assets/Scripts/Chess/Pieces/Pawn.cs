@@ -52,4 +52,8 @@ public class Pawn : Piece
             board.PromotePiece(this);
         }
     }
+
+	public override string ToString() {
+        return team == TeamColor.White ? "P" : "p";
+    }
 }

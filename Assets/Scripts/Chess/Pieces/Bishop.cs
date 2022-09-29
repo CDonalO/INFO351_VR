@@ -36,4 +36,8 @@ public class Bishop : Piece
         }
         return avaliableMoves;
     }
+
+    public override string ToString() {
+        return team == TeamColor.White ? "B" : "b";
+    }
 }

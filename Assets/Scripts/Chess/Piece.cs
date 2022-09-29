@@ -74,4 +74,6 @@ public abstract class Piece : MonoBehaviour
 		return false;
 	}
 
+	public override abstract string ToString();
+
 }
