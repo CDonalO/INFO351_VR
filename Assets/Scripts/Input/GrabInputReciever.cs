@@ -3,23 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GrabInputReciever : InputReciever
-{   
-    private bool objGrabbed = false;
-    private void Update() {
-        GameObject grabbed = OVRGrabbable.currObject;
-        if (grabbed != null & !objGrabbed){
-            objGrabbed = true;
-            Debug.Log("Aaaaa");
-            OnInputRecieved();
+{
+    private BoardInputHandler inputHandler;
+
+    public void Start()
+    {
+        inputHandler = GameObject.FindGameObjectsWithTag("Board")[0].GetComponent(typeof(BoardInputHandler)) as BoardInputHandler;
+    }
+
+    public void select(GameObject s)
+    {
+        Debug.Log("NAMEEEEEEEEE " + s.name);
+        if (s.name == "Selector(Clone)")
+        {
+            inputHandler.ProcessInput(s.transform.position, null, null);
+        }
+        else
+        {
+            inputHandler.ProcessInput(new Vector3(2, 2, 2), s, null);
         }
     }
 
     public override void OnInputRecieved()
     {
-        GameObject objectGrabbed = OVRGrabbable.currObject;
-        foreach (var handler in inputHandlers)
-        {
-            handler.ProcessInput(new Vector3(1,3,2), objectGrabbed, null);
-        }
     }
 }

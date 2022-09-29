@@ -15,6 +15,10 @@ public class BoardInputHandler : MonoBehaviour, IInputHandler
 
     public void ProcessInput(Vector3 inputPosition, GameObject selectedObject, Action onClick)
     {
+        if (selectedObject != null) {
+            board.OnSquareSelected(selectedObject);
+            return;
+        }
         Debug.Log("Bleep " + inputPosition);
         if (selectedObject != null){
             board.OnSquareSelected(selectedObject.transform.position);

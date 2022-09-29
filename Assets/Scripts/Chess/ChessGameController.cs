@@ -15,7 +15,7 @@ public class ChessGameController : MonoBehaviour
     [SerializeField] private BoardLayout startingBoardLayout;
     [SerializeField] private Board board;
     // [SerializeField] private ChessUIManager UIManager;
-    private Stockfish stockfish;
+   // private Stockfish stockfish;
 
     private PiecesCreator pieceCreator;
     private ChessPlayer whitePlayer;
@@ -58,7 +58,7 @@ public class ChessGameController : MonoBehaviour
         activePlayer = whitePlayer;
         GenerateAllPossiblePlayerMoves(activePlayer);
         GenerateAllPossiblePlayerMoves(GetOpponentToPlayer(activePlayer));
-        stockfish = new Stockfish();
+        //stockfish = new Stockfish();
         board.ToFenNotation();
         SetGameState(GameState.Play);
         
@@ -91,8 +91,9 @@ public class ChessGameController : MonoBehaviour
 
     public void CreatePieceAndInitialize(Vector2Int squareCoords, TeamColor team, Type type)
     {
-
-        Piece newPiece = pieceCreator.CreatePiece(type,team.ToString()).GetComponent<Piece>();
+        GameObject go = pieceCreator.CreatePiece(type, team.ToString());
+        Piece newPiece = go.GetComponent<Piece>();
+        newPiece.objId = go.GetInstanceID();
         newPiece.SetData(squareCoords, team, board);
         
         Material teamMaterial = pieceCreator.GetTeamMaterial(team);

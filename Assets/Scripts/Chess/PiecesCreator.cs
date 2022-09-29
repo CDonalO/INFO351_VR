@@ -15,14 +15,12 @@ public class PiecesCreator : MonoBehaviour
     {
         foreach (var piece in piecesPrefabs)
         {
-            Debug.Log("PieceName " + piece.name);
             nameToPieceDict.Add(piece.name, piece);
         }
     }
 
     public GameObject CreatePiece(Type type,string team)
     {
-        Debug.Log(type.ToString());
         GameObject prefab = nameToPieceDict[team + type.ToString()];
         if (prefab)
         {

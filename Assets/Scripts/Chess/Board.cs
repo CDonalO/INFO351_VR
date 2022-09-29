@@ -47,8 +47,23 @@ public class Board : MonoBehaviour
         return new Vector2Int(x, y);
     }
 
+    public Piece GetPieceByID(int id) {
+        for (int i = 0; i < grid.GetLength(0); i++)
+        {
+            for (int x = 0; x < grid.GetLength(1); x++)
+            {
+                if (grid[i, x] != null && grid[i,x].objId == id)
+                {
+                    return grid[i, x];
+                }
+            }
+        }
+        return null;
+    }
+
     public void OnSquareSelected(Vector3 inputPosition)
     {
+
         Vector2Int coords = CalculateCoordsFromPosition(inputPosition);
         Piece piece = GetPieceOnSquare(coords);
         if(piece == null){
@@ -70,6 +85,30 @@ public class Board : MonoBehaviour
         }
     }
 
+    public void OnSquareSelected(GameObject obj)
+    {
+
+
+        Piece piece = GetPieceByID(obj.GetInstanceID());
+        if (piece == null)
+        {
+            Debug.Log("null piece");
+        }
+        if (selectedPiece)
+        {
+            if (piece != null && selectedPiece == piece)
+                DeselectPiece();
+            else if (piece != null && selectedPiece != piece && chessController.IsTeamTurnActive(piece.team))
+                SelectPiece(piece);
+/*            else if (selectedPiece.CanMoveTo(coords))
+                OnSelectedPieceMoved(coords, selectedPiece);*/
+        }
+        else
+        {
+            if (piece != null && chessController.IsTeamTurnActive(piece.team))
+                SelectPiece(piece);
+        }
+    }
 
     private void SelectPiece(Piece piece)
     {
