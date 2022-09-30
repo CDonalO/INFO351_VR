@@ -345,11 +345,11 @@ GameObject:
   - component: {fileID: 1360560966344455011}
   - component: {fileID: 7493816406335012473}
   - component: {fileID: 432281206495578736}
-  - component: {fileID: -8874724346458001513}
   - component: {fileID: -6048924648400709957}
   - component: {fileID: 25410767279973775}
   - component: {fileID: -8647431286695322916}
   - component: {fileID: 1485233179523981804}
+  - component: {fileID: 2577047116479711381}
   m_Layer: 0
   m_Name: BlackRook
   m_TagString: Untagged
@@ -392,7 +392,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &1360560966344455011
 BoxCollider:
@@ -459,18 +459,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb52ff9705db2e0498377fc6be0f2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-8874724346458001513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562622190837322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d25f8536c0d4948be87c2ac7f3c310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-6048924648400709957
@@ -567,6 +555,20 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2577047116479711381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562622190837322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81c33d35369a24c8ab4c9b9b045095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  jumpHeight: 4
 --- !u!1 &1696893368774660
 GameObject:
   m_ObjectHideFlags: 0

@@ -262,11 +262,11 @@ GameObject:
   - component: {fileID: -5906520606256003373}
   - component: {fileID: -659112982531135868}
   - component: {fileID: -2936846764349889568}
-  - component: {fileID: 8210833798808584783}
   - component: {fileID: -2866934187800836774}
   - component: {fileID: 3764939487275867290}
   - component: {fileID: -5339946936679826392}
   - component: {fileID: 2495487273407563029}
+  - component: {fileID: 2952606616156845590}
   m_Layer: 0
   m_Name: BlackBishop
   m_TagString: Untagged
@@ -311,7 +311,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &-5906520606256003373
 BoxCollider:
@@ -378,18 +378,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb52ff9705db2e0498377fc6be0f2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8210833798808584783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239270685352430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d25f8536c0d4948be87c2ac7f3c310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-2866934187800836774
@@ -486,6 +474,20 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2952606616156845590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239270685352430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81c33d35369a24c8ab4c9b9b045095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  jumpHeight: 4
 --- !u!1 &1474080326116580
 GameObject:
   m_ObjectHideFlags: 0

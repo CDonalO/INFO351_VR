@@ -179,11 +179,11 @@ GameObject:
   - component: {fileID: 6942174437531268531}
   - component: {fileID: 2444666483935213115}
   - component: {fileID: -6332880126111062817}
-  - component: {fileID: -4984026209301658348}
   - component: {fileID: -3577827977802639006}
   - component: {fileID: -762549882279451642}
   - component: {fileID: 7466704015004212582}
   - component: {fileID: 2128376062328096050}
+  - component: {fileID: 397180682319963059}
   m_Layer: 0
   m_Name: WhiteKnight
   m_TagString: Untagged
@@ -226,7 +226,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &6942174437531268531
 BoxCollider:
@@ -293,18 +293,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb52ff9705db2e0498377fc6be0f2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-4984026209301658348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140620360365506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d25f8536c0d4948be87c2ac7f3c310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-3577827977802639006
@@ -401,6 +389,20 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &397180682319963059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140620360365506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81c33d35369a24c8ab4c9b9b045095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  jumpHeight: 4
 --- !u!1 &1797368821481418
 GameObject:
   m_ObjectHideFlags: 0

@@ -179,11 +179,11 @@ GameObject:
   - component: {fileID: 8080687408249710658}
   - component: {fileID: 4250806844441711233}
   - component: {fileID: -875413390547542184}
-  - component: {fileID: -107862404729156149}
   - component: {fileID: 8897838791814770631}
   - component: {fileID: -5389914484066099815}
   - component: {fileID: -1913083289586923533}
   - component: {fileID: 3368224546198479826}
+  - component: {fileID: 7649587652877879978}
   m_Layer: 0
   m_Name: BlackPawn
   m_TagString: Untagged
@@ -227,7 +227,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &8080687408249710658
 BoxCollider:
@@ -294,18 +294,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb52ff9705db2e0498377fc6be0f2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-107862404729156149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335334207052556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d25f8536c0d4948be87c2ac7f3c310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8897838791814770631
@@ -402,6 +390,20 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7649587652877879978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335334207052556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81c33d35369a24c8ab4c9b9b045095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  jumpHeight: 4
 --- !u!1 &1572437516991594
 GameObject:
   m_ObjectHideFlags: 0

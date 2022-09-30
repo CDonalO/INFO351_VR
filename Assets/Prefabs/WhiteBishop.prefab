@@ -262,11 +262,11 @@ GameObject:
   - component: {fileID: 1765681270402484657}
   - component: {fileID: -7787832871392047107}
   - component: {fileID: 4751592186980462706}
-  - component: {fileID: -465492118131649668}
   - component: {fileID: 2981945496022306990}
   - component: {fileID: -4415955729314534755}
   - component: {fileID: -7311938852137730015}
   - component: {fileID: -4716720448687032024}
+  - component: {fileID: 702227041856774905}
   m_Layer: 0
   m_Name: WhiteBishop
   m_TagString: Untagged
@@ -311,7 +311,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &1765681270402484657
 BoxCollider:
@@ -378,18 +378,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb52ff9705db2e0498377fc6be0f2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-465492118131649668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353652469814562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d25f8536c0d4948be87c2ac7f3c310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2981945496022306990
@@ -486,6 +474,20 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &702227041856774905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353652469814562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81c33d35369a24c8ab4c9b9b045095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  jumpHeight: 4
 --- !u!1 &1379846575488800
 GameObject:
   m_ObjectHideFlags: 0

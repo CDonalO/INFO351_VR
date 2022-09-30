@@ -96,11 +96,11 @@ GameObject:
   - component: {fileID: -7739460906338920361}
   - component: {fileID: -3013089703132263942}
   - component: {fileID: -7567472112119115112}
-  - component: {fileID: 6105302213075929626}
-  - component: {fileID: -7611856362933700503}
+  - component: {fileID: -398631727683370819}
   - component: {fileID: -3601881850109715130}
   - component: {fileID: 5500573890999263387}
   - component: {fileID: -2654564170013482888}
+  - component: {fileID: -5654293482069079222}
   m_Layer: 0
   m_Name: WhitePawn
   m_TagString: Untagged
@@ -144,7 +144,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &-7739460906338920361
 BoxCollider:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb52ff9705db2e0498377fc6be0f2f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6105302213075929626
+--- !u!114 &-398631727683370819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,23 +222,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1109215888586288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d25f8536c0d4948be87c2ac7f3c310, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f81c33d35369a24c8ab4c9b9b045095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7611856362933700503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109215888586288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b7ee468101a640428720f6b348239b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialSetter: {fileID: 0}
-  avaliableMoves: []
+  movementSpeed: 1
+  jumpHeight: 4
 --- !u!114 &-3601881850109715130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +307,20 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-5654293482069079222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109215888586288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7ee468101a640428720f6b348239b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialSetter: {fileID: 0}
+  avaliableMoves: []
 --- !u!1 &1304837620327310
 GameObject:
   m_ObjectHideFlags: 0
