@@ -15,15 +15,22 @@ public class Stockfish
         p.StartInfo.RedirectStandardInput = true;
         p.StartInfo.RedirectStandardOutput = true;
         p.Start();
-        p.StandardInput.WriteLine("setoption name Skill Level value 1");
+        p.StandardInput.WriteLine("setoption name Skill Level value 5");
     }
 
     public void setPosition(string fenPosition) {
         p.StandardInput.WriteLine("position fen " + fenPosition);
     }
 
+    public void setDif(int dif){
+        if (dif >20 || dif < 1){
+            return;
+        }
+        p.StandardInput.WriteLine("setoption name Skill Level value {0}",dif);
+    }
+
     public string getBestMove() {
-        p.StandardInput.WriteLine("go movetime 3500");
+        p.StandardInput.WriteLine("go movetime 4500");
         string bestMove;
         while (!(bestMove = p.StandardOutput.ReadLine()).StartsWith("bestmove") );
         return bestMove;

@@ -16,7 +16,7 @@ public class ChessGameController : MonoBehaviour
     [SerializeField] private BoardLayout startingBoardLayout;
     [SerializeField] private Board board;
     // [SerializeField] private ChessUIManager UIManager;
-    private Stockfish stockfish;
+    public Stockfish stockfish;
 
     private PiecesCreator pieceCreator;
     private ChessPlayer whitePlayer;
