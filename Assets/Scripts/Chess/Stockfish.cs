@@ -23,7 +23,7 @@ public class Stockfish
     }
 
     public string getBestMove() {
-        p.StandardInput.WriteLine("go movetime 5000");
+        p.StandardInput.WriteLine("go movetime 3500");
         string bestMove;
         while (!(bestMove = p.StandardOutput.ReadLine()).StartsWith("bestmove") );
         return bestMove;
