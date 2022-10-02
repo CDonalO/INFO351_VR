@@ -55,11 +55,32 @@ public class King : Piece
     }
 
     public bool CanCastleLeft() { //todo
-        return true;
+        Piece rook = GetRookInDirection(team, Vector2Int.left);
+        return !hasMoved && rook && !rook.hasMoved;
     }
 
     public bool CanCastleRight() { //todo
-        return true;
+        Piece rook = GetRookInDirection(team, Vector2Int.right);
+        return !hasMoved && rook && !rook.hasMoved;
+    }
+
+    private Piece GetRookInDirection(TeamColor team, Vector2Int direction)
+    {
+        for (int i = 1; i <= Board.BOARD_SIZE; i++)
+        {
+            Vector2Int nextCoords = occupiedSquare + direction * i;
+            Piece piece = board.GetPieceOnSquare(nextCoords);
+            if (!board.CheckIfCoordinatesAreOnBoard(nextCoords))
+                return null;
+            if (piece != null)
+            {
+                if (piece.team != team || !(piece is Rook))
+                    continue;
+                else if (piece.team == team && piece is Rook)
+                    return piece;
+            }
+        }
+        return null;
     }
 
     private Piece GetPieceInDirection<T>(TeamColor team, Vector2Int direction)

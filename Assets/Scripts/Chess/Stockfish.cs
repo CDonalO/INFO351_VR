@@ -15,6 +15,7 @@ public class Stockfish
         p.StartInfo.RedirectStandardInput = true;
         p.StartInfo.RedirectStandardOutput = true;
         p.Start();
+        p.StandardInput.WriteLine("setoption name Skill Level value 1");
     }
 
     public void setPosition(string fenPosition) {
@@ -26,6 +27,5 @@ public class Stockfish
         string bestMove;
         while (!(bestMove = p.StandardOutput.ReadLine()).StartsWith("bestmove") );
         return bestMove;
-
     }
 }

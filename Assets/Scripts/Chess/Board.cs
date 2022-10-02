@@ -28,8 +28,6 @@ public class Board : MonoBehaviour
         this.chessController = chessController;
     }
 
-
-
     private void CreateGrid()
     {
         grid = new Piece[BOARD_SIZE, BOARD_SIZE];
@@ -61,10 +59,8 @@ public class Board : MonoBehaviour
         return null;
     }
 
-    public void OnSquareSelected(Vector3 inputPosition)
+    public void OnSquareSelected(Vector2Int coords)
     {
-
-        Vector2Int coords = CalculateCoordsFromPosition(inputPosition);
         Piece piece = GetPieceOnSquare(coords);
         if(piece == null){
             Debug.Log("null piece");
@@ -83,6 +79,12 @@ public class Board : MonoBehaviour
             if (piece != null && chessController.IsTeamTurnActive(piece.team))
                 SelectPiece(piece);
         }
+    }
+
+    public void OnSquareSelected(Vector3 inputPosition)
+    {
+        Vector2Int coords = CalculateCoordsFromPosition(inputPosition);
+        OnSquareSelected(coords);
     }
 
     public void OnSquareSelected(GameObject obj)
@@ -239,7 +241,7 @@ public class Board : MonoBehaviour
         }
         fen.Remove(fen.Length - 1, 1);
 
-        fen.AppendFormat(" {0}", chessController.IsTeamTurnActive(TeamColor.White) ? "w" : "b");
+        fen.AppendFormat(" {0} ", chessController.IsTeamTurnActive(TeamColor.White) ? "w" : "b");
 
         StringBuilder castling = new StringBuilder();
         King whiteKing = chessController.GetPlayer(TeamColor.White).GetKing();
@@ -248,7 +250,7 @@ public class Board : MonoBehaviour
         castling.Append(whiteKing.CanCastleLeft() ? "Q" : "");
         castling.Append(blackKing.CanCastleRight() ? "k" : "");
         castling.Append(blackKing.CanCastleLeft() ? "q" : "");
-        fen.Append(castling.Length > 0 ? castling : " -");
+        fen.Append(castling.Length > 0 ? castling : "-");
 
         fen.Append(" - 0");
 

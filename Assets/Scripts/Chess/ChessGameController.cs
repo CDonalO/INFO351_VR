@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 
 [RequireComponent(typeof(PiecesCreator))]
@@ -15,7 +16,7 @@ public class ChessGameController : MonoBehaviour
     [SerializeField] private BoardLayout startingBoardLayout;
     [SerializeField] private Board board;
     // [SerializeField] private ChessUIManager UIManager;
-   // private Stockfish stockfish;
+    private Stockfish stockfish;
 
     private PiecesCreator pieceCreator;
     private ChessPlayer whitePlayer;
@@ -28,6 +29,7 @@ public class ChessGameController : MonoBehaviour
 
     private void Awake()
     {
+        stockfish = new Stockfish();
         SetDependencies();
         CreatePlayers();
         counter = 1;
@@ -41,7 +43,7 @@ public class ChessGameController : MonoBehaviour
     private void CreatePlayers()
     {
         whitePlayer = new ChessPlayer(TeamColor.White, board);
-        blackPlayer = new ChessPlayer(TeamColor.Black, board);
+        blackPlayer = new AIPlayer(TeamColor.Black, board, stockfish);
     }
 
     private void Start()
@@ -58,8 +60,6 @@ public class ChessGameController : MonoBehaviour
         activePlayer = whitePlayer;
         GenerateAllPossiblePlayerMoves(activePlayer);
         GenerateAllPossiblePlayerMoves(GetOpponentToPlayer(activePlayer));
-        //stockfish = new Stockfish();
-        board.ToFenNotation();
         SetGameState(GameState.Play);
         
     }
@@ -180,6 +180,10 @@ public class ChessGameController : MonoBehaviour
     private void ChangeActiveTeam()
     {
         activePlayer = activePlayer == whitePlayer ? blackPlayer : whitePlayer;
+        if (activePlayer is AIPlayer) {
+            Thread th = new Thread(((AIPlayer) activePlayer).OnActivate);
+            th.Start();
+        }
     }
 
     private ChessPlayer GetOpponentToPlayer(ChessPlayer player)
@@ -200,5 +204,11 @@ public class ChessGameController : MonoBehaviour
     internal void RemoveMovesEnablingAttakOnPieceOfType<T>(Piece piece) where T : Piece
     {
         activePlayer.RemoveMovesEnablingAttakOnPieceOfType<T>(GetOpponentToPlayer(activePlayer), piece);
+    }
+
+    void Update() {
+        if (activePlayer is AIPlayer && ((AIPlayer) activePlayer).IsMoveAvailable()) {
+            ((AIPlayer) activePlayer).doMove();
+        }
     }
 }
