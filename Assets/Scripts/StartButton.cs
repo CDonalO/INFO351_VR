@@ -14,4 +14,8 @@ public class StartButton : MonoBehaviour
     public void startGame() {
         cgc.RestartGame();
     }
+
+    public void changeDif(int dif){
+        cgc.SetDifficulty(dif);
+    }
 }

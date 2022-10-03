@@ -46,6 +46,14 @@ public class ChessGameController : MonoBehaviour
         blackPlayer = new AIPlayer(TeamColor.Black, board, stockfish);
     }
 
+    public void SetDifficulty(int dif){
+        if (dif >20 || dif < 1){
+            return;
+        }
+        stockfish.setDif(dif);
+        RestartGame();
+    }
+
     private void Start()
     {
         StartNewGame();

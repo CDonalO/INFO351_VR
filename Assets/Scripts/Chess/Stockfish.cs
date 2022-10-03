@@ -23,9 +23,6 @@ public class Stockfish
     }
 
     public void setDif(int dif){
-        if (dif >20 || dif < 1){
-            return;
-        }
         p.StandardInput.WriteLine("setoption name Skill Level value {0}",dif);
     }
 
